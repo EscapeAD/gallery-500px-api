@@ -2,8 +2,8 @@
   <div class='row'>
     <div class='col-md-12'>
     <% @photos.each do | photo | %>
-    <div class='col-md-3'>
-      <%= photo['name'] %><br/>
+    <div class='col-md-3 text-center'>
+      <%= photo['name'].first(25) %><br/>
       <%= image_tag photo['image_url'] %>
     </div>
     <% end %>
