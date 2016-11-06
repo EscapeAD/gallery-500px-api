@@ -6,4 +6,14 @@
 
 
 </p>
+  <div class='row'>
+    <div class='col-md-12'>
+    <% @photos.each do | photo | %>
+    <div class='col-md-3'>
+      <%= photo['name'] %><br/>
+      <%= image_tag photo['image_url'] %>
+    </div>
+    <% end %>
+    </div>
+  </div>
 </div>
