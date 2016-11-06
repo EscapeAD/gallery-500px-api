@@ -1,11 +1,11 @@
 class ScoutsController < ApplicationController
   def index
-    # client = PhotoGetter.new
-    @photos = client.get_photos
+    client = FivePx.new(session[:oauth_token], session[:oauth_secret])
   end
 
   def create
 
   end
+
 
 end
