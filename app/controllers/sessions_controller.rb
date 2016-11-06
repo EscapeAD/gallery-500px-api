@@ -1,9 +1,7 @@
 class SessionsController < ApplicationController
   def create
-    session[:uid]          = auth_hash.uid
-    session[:user]         = auth_hash.info.nickname
-    session[:oauth_token]  = auth_hash.credentials.token
-    session[:oauth_secret] = auth_hash.credentials.secret
+    session[:token]        = auth_hash.token
+    session[:token_secret] = auth_hash.secret
     redirect_to root_path
 
     # render json: request.env['omniauth.auth']
@@ -12,6 +10,6 @@ class SessionsController < ApplicationController
   protected
 
   def auth_hash
-    request.env['omniauth.auth']
+    request.env['omniauth.auth']['credentials']
   end
 end
