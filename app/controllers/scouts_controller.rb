@@ -6,7 +6,7 @@ class ScoutsController < ApplicationController
   end
 
   def show
-    response = client.get('photos?rpp=100&feature=popular')
+    response = client.get('user/')
   end
 
   def create
