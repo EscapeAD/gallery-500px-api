@@ -1,11 +1,15 @@
 # 500 PX API Gallery
- ''
+ ``
  Adam Tse
- ''
+ ``
 
- ## setup
+ # setup
+
  * rails
  * f00px
  * omniauth
  * omni-auth-500px
- 
+
+# current version
+
+* incomplete - ongoing
