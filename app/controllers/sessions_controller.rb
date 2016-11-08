@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   def create
+    # session[:key]          = auth_hash['extra']['access_token']['consumer']['key']
+    # session[:secret]       = auth_hash['extra']['access_token']['consumer']['secret']
     session[:token]        = auth_hash['credentials']['token']
     session[:token_secret] = auth_hash['credentials']['secret']
     session[:username]     = auth_hash['info']['email']
