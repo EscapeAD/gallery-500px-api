@@ -14,15 +14,21 @@
   <body>
     <div class='container'>
       <h1> Welcome to 500px Scout </h1>
+      <div class='text-center'>
+        <% if flash[:notice] %>
+       <div class="notice"><%= flash[:notice] %></div>
+        <% end %>
+      </div>
     </div>
     <div class='container'>
       <div class='pull-left'>
       <% if session[:username].nil? %>
       <%= link_to 'Login', '/auth/500px/' %>
       <% else %>
-      Welcome: <%= session[:username] %> || <%= link_to 'Log Out', logout_path %>
+      <strong>Welcome:</strong> <%= session[:username] %> || <%= link_to 'Log Out', logout_path %>
       <% end %>
-    </div><div class='pull-right'>
+    </div>
+    <div class='pull-right'>
       <%= form_tag do %>
       <%= label_tag(:q, "Search for User:") %>
       <%= text_field_tag(:q) %>

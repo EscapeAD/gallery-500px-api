@@ -6,7 +6,7 @@
       <%= photo['name'].first(25) %><br/>
       <%= image_tag photo['image_url'] %>
       <br/>
-      <%= photo['votes_count']%><i class="fa fa-heart" aria-hidden="true"></i> <%= link_to 'Like', root_path %>
+      <%= photo['votes_count']%><i class="fa fa-heart" aria-hidden="true"></i> <%= link_to 'Like', "/heart/#{photo['id']}" %>
     </div>
     <% end %>
     </div>

@@ -13,6 +13,19 @@ class ScoutsController < ApplicationController
 
   end
 
+  def heart
+    @photo   = params[:photo]
+    puts @photo
+    if @client.token == nil
+      flash[:notice] = "Please Log in to do that"
+      redirect_to root_path
+    else
+      flash[:notice] = "Please Log in to do that"
+    @client.post("/v1/photos/#{@photo}/vote?vote=1")
+    # redirect_to :back
+    end
+  end
+
 private
   def set_client
     @client              = F00px::Client.new
