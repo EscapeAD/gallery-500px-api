@@ -30,9 +30,8 @@ class ScoutsController < ApplicationController
     if @client.token == nil
       flash[:notice] = "Please Log in to do that"
     else
-
-      @client.delete("photos/#{@photo}/vote")
-
+      #delete method broken
+      @client.request('delete', "photos/#{@photo}/vote")
       flash[:notice] = "you unlike a photo"
       redirect_to root_path
     end
