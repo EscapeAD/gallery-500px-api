@@ -5,6 +5,8 @@
     <div class='col-md-3 text-center'>
       <%= photo['name'].first(25) %><br/>
       <%= image_tag photo['image_url'] %>
+      <br/>
+      <%= photo['votes_count']%><i class="fa fa-heart" aria-hidden="true"></i> <%= link_to 'Like', root_path %>
     </div>
     <% end %>
     </div>

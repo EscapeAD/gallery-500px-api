@@ -4,9 +4,6 @@ class SessionsController < ApplicationController
     session[:token_secret] = auth_hash['credentials']['secret']
     session[:username]     = auth_hash['info']['email']
     # render json:  request.env['omniauth.auth']
-    puts session[:token]
-    puts session[:token_secret]
-    puts session[:username]
     redirect_to root_path
   end
 

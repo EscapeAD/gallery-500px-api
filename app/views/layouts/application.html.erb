@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
   </head>
 
@@ -19,7 +20,7 @@
       <% if session[:username].nil? %>
       <%= link_to 'Login', '/auth/500px/' %>
       <% else %>
-      Welcome: <%= session[:username] %> || <%= link_to 'LogOut', logout_path %>
+      Welcome: <%= session[:username] %> || <%= link_to 'Log Out', logout_path %>
       <% end %>
     </div><div class='pull-right'>
       <%= form_tag do %>

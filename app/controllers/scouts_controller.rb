@@ -15,6 +15,12 @@ class ScoutsController < ApplicationController
 
 private
   def set_client
-    @client = F00px::Client.new
+    @client              = F00px::Client.new
+    @client.token        = nil
+    @client.token_secret = nil
+    if session[:token_secret] && session[:token]
+      @client.token        = session[:token]
+      @client.token_secret = session[:token_secret]
+    end
   end
 end
