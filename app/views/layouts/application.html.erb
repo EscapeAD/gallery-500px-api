@@ -15,13 +15,21 @@
       <h1> Welcome to 500px Scout </h1>
     </div>
     <div class='container'>
+      <div class='pull-left'>
+      <% if session[:username].nil? %>
+      <%= link_to 'Login', '/auth/500px/' %>
+      <% else %>
+      Welcome: <%= session[:username] %> || <%= link_to 'logout', '/logout', method: :delete %>
+      <% end %>
+    </div><div class='pull-right'>
       <%= form_tag do %>
       <%= label_tag(:q, "Search for User:") %>
       <%= text_field_tag(:q) %>
       <%= submit_tag("Search") %>
       <% end %>
     </div>
-    <%= link_to 'Login', '/auth/500px/' %>
-    <%= yield %>
+  </div>
+  <%= yield %>
+
   </body>
 </html>
