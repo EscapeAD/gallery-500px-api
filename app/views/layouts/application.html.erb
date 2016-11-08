@@ -19,7 +19,7 @@
       <% if session[:username].nil? %>
       <%= link_to 'Login', '/auth/500px/' %>
       <% else %>
-      Welcome: <%= session[:username] %> || <%= link_to 'logout', '/logout', method: :delete %>
+      Welcome: <%= session[:username] %> || <%= link_to 'LogOut', logout_path %>
       <% end %>
     </div><div class='pull-right'>
       <%= form_tag do %>
