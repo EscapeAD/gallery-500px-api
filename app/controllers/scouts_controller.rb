@@ -6,7 +6,9 @@ class ScoutsController < ApplicationController
   end
 
   def show
-    response = client.get('user/')
+    @username = params[:search]
+    response = @client.get("users/show?username=#{@username}")
+    render :show
   end
 
   def create

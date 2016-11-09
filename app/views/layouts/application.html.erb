@@ -28,10 +28,10 @@
       <% end %>
     </div>
     <div class='pull-right'>
-      <%= form_tag do %>
-      <%= label_tag(:q, "Search for User:") %>
-      <%= text_field_tag(:q) %>
-      <%= submit_tag("Search") %>
+      <%= form_tag '/scouts/search', method: :get, controller: :show, class:'searchform' do %>
+      <%= label_tag( "Search for User:") %>
+      <%= text_field_tag :search %>
+      <%= submit_tag "Search", id: 'search_button' %>
       <% end %>
     </div>
   </div>
