@@ -1,21 +1,24 @@
 class ScoutsController < ApplicationController
   before_action :set_client
   def index
-      response = @client.get('photos?rpp=100&feature=popular')
-      @photos  = JSON.parse(response.body)['photos']
+      response  = @client.get('photos?rpp=100&feature=popular')
+      @photos   = JSON.parse(response.body)['photos']
   end
 
   def show
-    @username = params[:search]
-    response = @client.get("users/show?username=#{@username}")
-    user  = JSON.parse(response.body)
+    @username   = params[:search]
+    response    = @client.get("users/show?username=#{@username}")
+    user        = JSON.parse(response.body)
     if user['user'] == nil
-      @error = user
+      @error    = user
       render :error
     else
-      @user = user['user']
+      @user     = user['user']
+      user_id   = @user['id']
+      res_data  = @client.get("photos?feature=user&user_id=#{user_id}")
+      @photos   = JSON.parse(res_data.body)['photos']
       render :show
-    # render json: @user
+    # render json: @photos
     end
   end
 
@@ -24,7 +27,7 @@ class ScoutsController < ApplicationController
   end
 
   def heart
-    @photo   = params[:photo]
+    @photo      = params[:photo]
     if @client.token == nil
       flash[:notice] = "Please Log in to do that"
       redirect_to root_path
@@ -36,7 +39,7 @@ class ScoutsController < ApplicationController
   end
 
   def unheart
-    @photo   = params[:photo]
+    @photo      = params[:photo]
     if @client.token == nil
       flash[:notice] = "Please Log in to do that"
     else
