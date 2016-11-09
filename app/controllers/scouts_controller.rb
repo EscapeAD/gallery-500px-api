@@ -9,8 +9,11 @@ class ScoutsController < ApplicationController
     @username = params[:search]
     response = @client.get("users/show?username=#{@username}")
     @user  = JSON.parse(response.body)
-
+    if @user['status'] == 403
+      render :error
+    else
     render json: @user
+    end
   end
 
   def create
