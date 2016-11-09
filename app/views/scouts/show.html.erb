@@ -1,1 +1,16 @@
+<div class='container'>
 <h1><%= @username %></h1>
+<div class='container col-md-4'>
+  <%= image_tag @user['userpic_url'], class: 'pull-left thumbnail' %>
+</div>
+  <div class='container col-md-6'>
+  <strong> Name: </strong><%= @user['firstname']%> <%= @user['lastname']%><br/>
+  <strong> City: </strong><%= @user['city'] %>
+  </div>
+
+
+
+
+
+
+</div>
