@@ -8,7 +8,9 @@ class ScoutsController < ApplicationController
   def show
     @username = params[:search]
     response = @client.get("users/show?username=#{@username}")
-    render :show
+    @user  = JSON.parse(response.body)
+
+    render json: @user
   end
 
   def create
