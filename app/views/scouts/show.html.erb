@@ -1,11 +1,14 @@
 <div class='container'>
-<h2><%= @username %></h2>
+<h2 class='text-center'><%= @username %></h2>
 <div class='container col-md-4'>
   <%= image_tag @user['userpic_url'], class: 'pull-left thumbnail' %>
 </div>
   <div class='container col-md-6'>
   <strong> Name: </strong><%= @user['firstname']%> <%= @user['lastname']%><br/>
-  <strong> City: </strong><%= @user['city'] %>
+  <strong> City: </strong><%= @user['city'] %><br/>
+  <strong> Country: </strong><%= @user['country'] %><br/>
+  <strong> Sex: </strong><%= @user['sex'] == 1 ? 'male': 'female' %><br/>
+  <strong> About Me: </strong><br/><%= @user['about'] %>
   </div>
   </div>
 
