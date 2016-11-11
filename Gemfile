@@ -50,3 +50,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # production
 gem 'rails_12factor', group: :production
+gem 'rspec-rails',  group: :development 
