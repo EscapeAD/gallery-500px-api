@@ -1,9 +1,10 @@
 class ScoutsController < ApplicationController
   before_action :set_client
-  
+
   def index
-      response  = @client.get('photos?rpp=100&feature=popular')
+      response  = @client.get('photos?rpp=100&feature=popular&include_states=voted')
       @photos   = JSON.parse(response.body)['photos']
+      # render json: @photos
   end
 
   def show
@@ -61,8 +62,8 @@ private
     if session[:token_secret] && session[:token]
       @client.token           = session[:token]
       @client.token_secret    = session[:token_secret]
-      # @client.consumer_key    = session[:key]
-      # @client.consumer_secret = session[:secret]
+      @client.consumer_key    = session[:key]
+      @client.consumer_secret = session[:secret]
     end
   end
 end

@@ -8,7 +8,6 @@
       <br/>
       <%= photo['votes_count']%><i class="fa fa-heart" aria-hidden="true"></i>
       <% if photo['voted'] == false  %>
-        <%= photo['voted'] %>
         <%= link_to 'Like', "/heart/#{photo['id']}" %>
         <% else %>
         <%= link_to 'UnLike', "/unheart/#{photo['id']}", id: 'unlike' %>
