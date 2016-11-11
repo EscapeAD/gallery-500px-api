@@ -11,11 +11,14 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:token]        = nil
-    session[:token_secret] = nil
-    session[:username]     = nil
-    session[:key]          = nil
-    session[:secret]       = nil
+    session.each_value do |value|
+      value = nil
+    end
+    # session[:token]        = nil
+    # session[:token_secret] = nil
+    # session[:username]     = nil
+    # session[:key]          = nil
+    # session[:secret]       = nil
     redirect_to root_path
   end
 
