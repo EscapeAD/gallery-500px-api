@@ -4,8 +4,7 @@
     <% @photos.each do | photo | %>
     <div class='col-md-3 text-center'>
       <%= photo['name'].first(25) %><br/>
-      <%= link_to(image_tag(photo['image_url']), "https://500px.com/photo/#{photo['id']}") %>
-      <br/>
+      <%= link_to(image_tag(photo['image_url']), "https://500px.com/photo/#{photo['id']}") %><br/>
       <%= photo['votes_count']%> <i class="fa fa-heart" aria-hidden="true"></i>
       <% if photo['voted'] == false || @client.token.nil? %>
         <%= link_to 'Like', "/heart/#{photo['id']}" %>

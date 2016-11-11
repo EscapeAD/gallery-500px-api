@@ -7,8 +7,13 @@ class ScoutsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "scout search" do
-    get '/scouts/:user', params: { search: 'sofia'}
-    assert_select 'h2', 'sofia'
+    get '/scouts/:user', params: { search: 'juliana_nan'}
+    assert_select 'h2', 'juliana_nan'
+  end
+  
+  test "scout search" do
+    get '/scouts/:user', params: { search: 'so'}
+    assert_select 'h2', 'There was a error searching for: so'
   end
 
 end

@@ -24,10 +24,6 @@ class ScoutsController < ApplicationController
     end
   end
 
-  def create
-
-  end
-
   def heart
     @photo      = params[:photo]
     if @client.token == nil
@@ -35,10 +31,8 @@ class ScoutsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = "you like a photo"
-
       @client.post("photos/#{@photo}/vote?vote=1")
       redirect_to root_path
-
     end
   end
 
@@ -51,6 +45,7 @@ class ScoutsController < ApplicationController
   end
 
 private
+
   def set_client
     @client              = F00px::Client.new
     @client.token        = nil
