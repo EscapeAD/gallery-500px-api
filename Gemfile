@@ -18,7 +18,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'omniauth'
 gem 'omniauth-500px'
-gem 'f00px'
+gem 'f00px' , git: "git://github.com/500px/f00px.git"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -51,3 +51,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # production
 gem 'rails_12factor', group: :production
+# gem 'httparty'

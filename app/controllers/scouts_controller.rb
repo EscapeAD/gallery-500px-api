@@ -1,5 +1,6 @@
 class ScoutsController < ApplicationController
   before_action :set_client
+  
   def index
       response  = @client.get('photos?rpp=100&feature=popular')
       @photos   = JSON.parse(response.body)['photos']
@@ -33,8 +34,10 @@ class ScoutsController < ApplicationController
       redirect_to root_path
     else
       flash[:notice] = "you like a photo"
+
       @client.post("photos/#{@photo}/vote?vote=1")
       redirect_to root_path
+
     end
   end
 
@@ -44,7 +47,7 @@ class ScoutsController < ApplicationController
       flash[:notice] = "Please Log in to do that"
     else
       #delete method broken
-      @client.request('delete', "photos/#{@photo}/vote")
+      @client.delete("photos/#{@photo}/vote")
       flash[:notice] = "you unlike a photo"
       redirect_to root_path
     end
