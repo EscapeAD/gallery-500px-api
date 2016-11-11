@@ -6,10 +6,10 @@
       <%= photo['name'].first(25) %><br/>
       <%= link_to(image_tag(photo['image_url']), "https://500px.com/photo/#{photo['id']}") %>
       <br/>
-      <%= photo['votes_count']%><i class="fa fa-heart" aria-hidden="true"></i>
-      <% if photo['voted'] == false  %>
+      <%= photo['votes_count']%> <i class="fa fa-heart" aria-hidden="true"></i>
+      <% if photo['voted'] == false || @client.token.nil? %>
         <%= link_to 'Like', "/heart/#{photo['id']}" %>
-        <% else %>
+        <% elsif photo['voted'] == true %>
         <%= link_to 'UnLike', "/unheart/#{photo['id']}", id: 'unlike' %>
       <% end %>
     </div>

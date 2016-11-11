@@ -44,14 +44,10 @@ class ScoutsController < ApplicationController
 
   def unheart
     @photo      = params[:photo]
-    if @client.token == nil
-      flash[:notice] = "Please Log in to do that"
-    else
       #delete method broken
       @client.delete("photos/#{@photo}/vote")
       flash[:notice] = "you unlike a photo"
       redirect_to root_path
-    end
   end
 
 private
