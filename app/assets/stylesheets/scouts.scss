@@ -1,6 +1,9 @@
 // Place all the styles related to the scouts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  background-color: white;
+}
 .border {
   border: 1px solid black;
 }
@@ -9,9 +12,14 @@
 }
 #logo a{
   color: #000000;
+  font-family: monospace;
 }
 
 #logo a:hover {
   text-decoration: none;
   color: #000000;
+}
+
+#small {
+  font-size: 1.2em;
 }
